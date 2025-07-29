@@ -1,27 +1,15 @@
 {
-  "name": "ui-lib",
+  "name": "react-ui-lib",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "dist/react-jumpad-ui.umd.js",
-  "module": "dist/react-jumpad-ui.es.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/react-jumpad-ui.es.js",
-      "require": "./dist/react-jumpad-ui.umd.js"
-    },
-    "./package.json": "./package.json"
-  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "tsup index.ts --dts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

@@ -1,21 +1,21 @@
 import react from "@vitejs/plugin-react";
-import { resolve } from "path";
+import path from "path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), dts({ insertTypesEntry: true })],
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
-    },
-  },
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+    }),
+  ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "ReactJumpadUI",
-      formats: ["es", "umd"],
-      fileName: (format) => `react-jumpad-ui.${format}.js`,
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "UiLib",
+      fileName: (format) => `react-ui-lib.${format}.js`,
+      formats: ["es", "cjs"], // output: ESM e CommonJS
     },
     rollupOptions: {
       external: ["react", "react-dom"],
